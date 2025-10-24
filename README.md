@@ -1,6 +1,8 @@
-# ❤️ Heart Catching Multiplayer Game - React Edition
+# ❤️ Heart Catching Multiplayer Game
 
 A fun real-time multiplayer heart-catching game built with **React**, **Tailwind CSS**, **Socket.IO**, and **Node.js**.
+
+🎮 **[Play Now →](https://heart-catching-game.vercel.app/)**
 
 ## 🎮 Features
 
@@ -9,51 +11,46 @@ A fun real-time multiplayer heart-catching game built with **React**, **Tailwind
 - **Two Game Modes**:
   - ⏱️ **5-Minute Timer Mode**: Catch as many hearts as possible in 5 minutes
   - 🎯 **Target Mode**: First to catch 50 hearts wins
-- **Real-time Synchronization**: Both players see the same hearts falling
-- **Beautiful Heart Shapes**: Custom-drawn hearts with glossy effects
+- **Real-time Synchronization**: Both players see the same hearts falling via Socket.IO
+- **Beautiful Heart Shapes**: Custom-drawn hearts with glossy effects on HTML5 Canvas
 - **Smooth Controls**: Responsive keyboard (Arrow keys/A/D) and mobile touch controls
 - **Automatic Player Assignment**: Joiners automatically follow the host's game mode
 - **Mobile & Desktop Support**: Fully responsive design
 
-## 🚀 Installation
+## 🚀 Local Development
 
 ### Prerequisites
 
 - Node.js (v14 or higher)
 - npm or yarn
 
-### Setup
+### Setup & Run
 
-1. **Install dependencies**:
+1. **Clone and install dependencies**:
 
 ```bash
-cd heart-game-react
+git clone https://github.com/somnath271/heart-catching-game.git
+cd heart-catching-game
 npm install
 ```
 
-2. **Install additional server dependencies**:
+2. **Start the backend server** (Terminal 1):
 
 ```bash
-npm install express socket.io
+npm run server
 ```
 
-## 🎯 How to Run
+Server runs on `http://localhost:3000`
 
-### Start the Server (Terminal 1)
+3. **Start the React app** (Terminal 2):
 
 ```bash
-node server.js
+PORT=3001 npm start
 ```
 
-Server will run on `http://localhost:3000`
+React app runs on `http://localhost:3001`
 
-### Start the React App (Terminal 2)
-
-```bash
-npm start
-```
-
-React app will run on `http://localhost:3001` (or next available port)
+4. **Play locally**: Open two browser tabs at `http://localhost:3001` and test!
 
 ## 🎲 How to Play
 
@@ -104,79 +101,51 @@ heart-game-react/
 
 ```
 
-## 🛠️ Technologies Used
+## 🛠️ Tech Stack
 
-- **React 18**: Modern React with hooks
-- **Tailwind CSS**: Utility-first CSS framework
-- **Socket.IO**: Real-time bidirectional communication
-- **HTML5 Canvas**: For rendering hearts and catching bars
-- **Express**: Node.js web server
+- **Frontend**: React 18, Tailwind CSS, HTML5 Canvas
+- **Backend**: Node.js, Express, Socket.IO
+- **Deployment**: Vercel (frontend) + Railway (backend)
+- **Real-time Communication**: WebSockets via Socket.IO
 
-## 🌟 Key Features Explained
+## 🚀 Deployment
 
-### Room System
+This project is deployed and live at:
+- **Frontend**: [Vercel](https://heart-catching-game.vercel.app/)
+- **Backend**: Railway (auto-deploys from GitHub)
 
-Each game session has a unique 6-character room code. Multiple pairs can play simultaneously without interference.
+### Deploy Your Own
 
-### Synchronized Gameplay
+**Frontend (Vercel):**
+1. Fork this repo
+2. Import to Vercel from GitHub
+3. Set environment variable: `REACT_APP_SERVER_URL` = your Railway backend URL
+4. Deploy
 
-All hearts are spawned and controlled by the server at 60 FPS, ensuring both players see identical gameplay.
+**Backend (Railway):**
+1. Install Railway CLI: `npm install -g @railway/cli`
+2. Run: `railway login` then `railway init`
+3. Deploy: `railway up`
+4. Set variable: `railway variables set CLIENT_URL=your-vercel-url`
 
-### Heart Drawing
+### Environment Variables
 
-Hearts are drawn using Bezier curves with:
+**Backend** (`server.js`):
+- `PORT` - Server port (default: 3000, Railway sets this automatically)
+- `CLIENT_URL` - Frontend URL(s) for CORS (supports comma-separated list)
+  - Example: `"https://your-app.vercel.app, http://localhost:3001"`
 
-- Realistic heart shape
-- Glossy highlight effect
-- Smooth animations
-
-### Collision Detection
-
-Server-side collision detection ensures fair gameplay and prevents cheating.
+**Frontend** (React):
+- `REACT_APP_SERVER_URL` - Backend server URL (default: `http://localhost:3000`)
 
 ## 📝 License
 
 MIT License - Feel free to use this project for learning or fun!
 
-## 🤝 Contributing
+## � Acknowledgments
 
-Feel free to fork this project and add your own features!
-
-## 🚀 Deployment
-
-### Quick Deploy to Production
-
-See detailed guides:
-
-- **[GITHUB_DEPLOY_GUIDE.md](./GITHUB_DEPLOY_GUIDE.md)** - Step-by-step GitHub upload and deployment
-- **[DEPLOYMENT.md](./DEPLOYMENT.md)** - All hosting options explained
-
-Recommended setup:
-
-- Frontend: Vercel (Create React App static build)
-- Backend: Fly.io (Node/Socket.IO with WebSockets)
-
-See:
-
-- [GITHUB_DEPLOY_GUIDE.md](./GITHUB_DEPLOY_GUIDE.md) – Vercel + Fly.io steps
-- [DEPLOYMENT.md](./DEPLOYMENT.md) – All options (Render, Railway, Vercel + Fly)
-
-### Environment Variables
-
-**Backend** (server.js):
-
-- `PORT` - Server port (default: 3000)
-- `CLIENT_URL` - Frontend URL(s) for CORS; supports comma-separated list
-  - Example: `CLIENT_URL="https://your-frontend.vercel.app, http://localhost:3001"`
-
-**Frontend** (React):
-
-- `REACT_APP_SERVER_URL` - Backend server URL (default: http://localhost:3000)
-
-## 🎉 Have Fun!
-
-Enjoy playing with your friends! ❤️💙
+Built with ❤️ using React, Socket.IO, and lots of hearts!
 
 ---
 
-Made with ❤️ using React, Socket.IO, and lots of hearts!
+**[Play the game now →](https://heart-catching-game.vercel.app/)**
