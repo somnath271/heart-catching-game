@@ -1,6 +1,6 @@
 # fly.toml file generated for Heart Game backend
 # You can customize the app name after 'fly launch' or edit here.
-app = "heart-game-server"
+app = "heart-catching-game"
 primary_region = "iad"
 
 [build]
