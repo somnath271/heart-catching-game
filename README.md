@@ -111,18 +111,21 @@ heart-game-react/
 ## 🚀 Deployment
 
 This project is deployed and live at:
+
 - **Frontend**: [Vercel](https://heart-catching-game.vercel.app/)
 - **Backend**: Railway (auto-deploys from GitHub)
 
 ### Deploy Your Own
 
 **Frontend (Vercel):**
+
 1. Fork this repo
 2. Import to Vercel from GitHub
 3. Set environment variable: `REACT_APP_SERVER_URL` = your Railway backend URL
 4. Deploy
 
 **Backend (Railway):**
+
 1. Install Railway CLI: `npm install -g @railway/cli`
 2. Run: `railway login` then `railway init`
 3. Deploy: `railway up`
@@ -131,11 +134,13 @@ This project is deployed and live at:
 ### Environment Variables
 
 **Backend** (`server.js`):
+
 - `PORT` - Server port (default: 3000, Railway sets this automatically)
 - `CLIENT_URL` - Frontend URL(s) for CORS (supports comma-separated list)
   - Example: `"https://your-app.vercel.app, http://localhost:3001"`
 
 **Frontend** (React):
+
 - `REACT_APP_SERVER_URL` - Backend server URL (default: `http://localhost:3000`)
 
 ## 📝 License
